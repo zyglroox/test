@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-contacts',
@@ -7,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactsComponent implements OnInit {
 
-  constructor() { }
+  contacts$;
+
+  constructor(private http: Http) {
+    this.contacts$ = http.get('https://swapi.co/api/people').
+      map(res => res.json());
+  }
 
   ngOnInit() {
   }

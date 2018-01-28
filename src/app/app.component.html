@@ -1,5 +1,9 @@
 <nav>
-    <a routerLink="">Home</a>
-    <a routerLink="contacts">Contacts</a>
+    <a *ngFor="let nav of navs"
+        [routerLink]="nav.url"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}"
+    >{{nav.content}}
+    </a>
 </nav>
 <router-outlet></router-outlet>

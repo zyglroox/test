@@ -12,7 +12,7 @@ export class ContactsComponent implements OnInit {
   contacts$;
 
   constructor(private http: Http) {
-    this.contacts$ = http.get('https://swapi.co/api/people').
+    this.contacts$ = http.get('http://localhost:3000/people').
       map(res => res.json());
   }
 
